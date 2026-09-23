@@ -1,0 +1,70 @@
+Python Dictionaries — Essential Revision Notes
+
+1. What is a dictionary?
+        A dictionary stores data as key-value pairs.
+        student = {    "name": "Jegadeshwari",    "age": 21,    "course": "Robotics"}
+
+Think of it like a record: each key identifies its corresponding value.
+
+2. Accessing and modifying values
+student["name"]       # "Jegadeshwari"
+student["age"] = 22   # Update value
+student["city"] = "Chennai"  # Add new key-value pair
+
+
+
+To safely access a key that might not exist:
+student.get("grade", "Not available")
+
+This returns "Not available" if the key is missing.
+
+3. Essential dictionary methods
+Method	Purpose
+get(key)	Safely retrieve a value
+keys()	Get all keys
+values()	Get all values
+items()	Get key-value pairs
+update()	Add or update multiple pairs
+pop(key)	Remove a key and return its value
+popitem()	Remove and return the last inserted pair
+clear()	Remove all entries
+
+4. Useful built-in functions
+Function	Purpose
+len(student)	Number of key-value pairs
+dict()	Create a dictionary
+sorted(student)	Return sorted keys
+
+5. Looping through a dictionary
+student = {    "name": "Jegadeshwari",    "course": "Robotics"}
+for key, value in student.items():
+    print(key, value)
+
+6. Checking whether a key exists
+if "name" in student:
+    print(student["name"])
+
+in checks dictionary keys by default, not values.
+
+7. Dictionary comprehension
+Create a dictionary using a concise expression.
+numbers = [1, 2, 3, 4]
+squares = {n: n**2 for n in numbers}
+print(squares)# {1: 1, 2: 4, 3: 9, 4: 16}
+
+
+
+8. Important things to remember
+    - Dictionary keys are unique.
+    - Dictionaries preserve insertion order.
+    - Values can be duplicated.
+    - Keys must be hashable; strings and integers are common examples.
+    - dict[key] raises KeyError if the key doesn't exist.
+    - get() returns None by default if the key is missing.
+    - pop(key) removes by key, unlike list pop(), which removes by index.
+9. AI applications
+Dictionaries are useful for storing:
+    - Model predictions and confidence scores.
+    - JSON/API responses.
+    - Model configuration settings.
+    - Structured records and metadata.
