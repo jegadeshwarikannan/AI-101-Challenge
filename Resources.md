@@ -1,496 +1,1168 @@
+# AI 101 — Learning Resources
 
-# AI 101 — Learning Resources & Study Guide
+> Resources mapped to the 101-day Applied AI and Automation roadmap.
 
-**Duration:** 101 Days  
-**Focus:** Applied AI, AI Engineering, and Automation  
-**Learning approach:** Study → Practice → Build → Explain
+The purpose of this file is to identify what I should learn from each resource, not to collect courses.
 
-This file maps the learning resources to the AI 101 roadmap.
-
-I will use these resources to learn concepts, implement practical examples, and build projects. I do not need to complete every course in full; I will focus on the lessons relevant to the current stage.
+I will use documentation when I need it, study courses selectively, and prioritize implementation over completion.
 
 ---
 
-# Stage 00 — Setup & Skill Assessment
+# Stage 00 — Setup
+
 **Days 1–3**
 
-## 1. Python Tutorial
-Link: https://docs.python.org/3/tutorial/
+## What to Learn
 
-### Study
-- Data structures: lists, dictionaries, sets, tuples
-- Conditions and loops
-- Functions and modules
+- Python virtual environments
+- Package management
+- API keys
+- `.env` files
+- Git workflow
+- Basic API requests
+- Logging
+
+## Python Tutorial
+
+https://docs.python.org/3/tutorial/
+
+### Use for
+
+Python refresher and reference.
+
+### Focus on
+
+- Functions
+- Data structures
+- Modules
 - File handling
 - Exceptions
 - Classes
-- Virtual environments and packages
+- Packages
 
-### Practice
-- Read and write files.
-- Process JSON data.
-- Create reusable Python functions.
-- Handle invalid inputs and exceptions.
+**Approach:** Skim only. I already have Python experience.
 
-### Build
-A small Python utility that reads a file, processes its contents, and generates a useful output.
+## Pro Git
 
-## 2. Pro Git
-Link: https://git-scm.com/book/en/v2
+https://git-scm.com/book/en/v2
 
-### Study
-- Getting started with Git
-- Recording changes
-- Viewing commit history
-- Branching and merging
-- Working with remote repositories
+### Use for
 
-### Practice
-- Create commits.
-- Create and merge a branch.
-- Inspect changes using `git diff`.
-- Push changes to GitHub.
+Git workflow and version control.
 
-### Build
-Set up the AI 101 repository and maintain it using Git.
+### Focus on
 
-## 3. GitHub Getting Started
-Link: https://docs.github.com/en/get-started
-
-### Study
 - Repositories
-- README files
 - Commits
 - Branches
+- Merging
+- Remote repositories
+- History
+- `diff`
+
+**Approach:** Skim only and use Git practically throughout the project.
+
+## GitHub Getting Started
+
+https://docs.github.com/en/get-started
+
+### Use for
+
+- Repository management
+- GitHub workflow
+- README files
 - Pull requests
 - Repository organization
 
-### Apply
-Maintain this AI 101 repository with meaningful commits and documented progress.
+**Approach:** Reference when needed rather than completing the entire documentation.
 
----
+## OpenAI API Documentation
 
-# Stage 01 — AI Foundations, LLMs & RAG Basics
-**Days 4–15**
+https://platform.openai.com/docs
 
-## 4. Introduction to Machine Learning
-Link: https://developers.google.com/machine-learning/intro-to-ml
+### Use for
 
-### Study
-- What machine learning is
-- Supervised learning
-- Features and labels
-- Training and inference
-- Traditional ML vs. generative AI
-
-### Apply
-Explain how a traditional ML model differs from an LLM-powered application.
-
-## 5. Hugging Face LLM Course
-Link: https://huggingface.co/learn/llm-course/chapter0/1
-
-### Study
-- Transformer fundamentals
-- Tokenizers
-- Models and inference
-- Using pretrained models
-- Hugging Face ecosystem
-
-### Apply
-Run a pretrained model and inspect its input and output.
-
-## 6. Prompt Engineering for Developers
-Link: https://www.deeplearning.ai/courses/chatgpt-prompt-engineering-for-developers/
-
-### Study
-- Writing clear instructions
-- Providing context
-- Summarization
-- Information extraction
-- Transforming text
+- API authentication
+- Model requests
 - Structured outputs
-- Iterative prompt improvement
+- Tool/function calling
+- Vision inputs
+- API usage patterns
 
-### Apply
-Try different prompts on the same task and compare the outputs.
+## Anthropic Documentation
 
-## 7. Understanding and Applying Text Embeddings
-Link: https://www.deeplearning.ai/courses/understanding-and-applying-text-embeddings/
+https://docs.claude.com
 
-### Study
-- What embeddings are
-- Semantic similarity
-- Similarity search
-- Embedding applications
+### Use for
 
-### Apply
-Generate embeddings for sentences and compare their similarity.
-
-## 8. Building Applications with Vector Databases
-Link: https://www.deeplearning.ai/courses/building-applications-vector-databases/
-
-### Study
-- Vector database concepts
-- Similarity search
-- Indexing
-- Retrieving relevant information
-
-### Apply
-Store text chunks and retrieve the most relevant chunks for a query.
-
-## 9. Retrieval-Augmented Generation
-Link: https://www.deeplearning.ai/courses/retrieval-augmented-generation/
-
-### Study
-- Why RAG is used
-- Document ingestion
-- Retrieval and generation
-- Context construction
-- Grounded answers
-- RAG limitations
-
-### Build
-**AI Document Assistant — Version 1**
-
-Create a basic application that:
-1. Accepts a document.
-2. Splits it into chunks.
-3. Creates embeddings.
-4. Retrieves relevant chunks.
-5. Uses an LLM to answer questions from the retrieved context.
-
----
-
-# Stage 02 — Tools, Workflows & AI Agents
-**Days 16–25**
-
-## 10. Hugging Face Agents Course
-Link: https://huggingface.co/learn/agents-course
-
-### Study
-- Agent fundamentals
-- Tools and actions
-- Agent execution cycles
-- Planning and execution
-- Agent frameworks
-- Agent limitations
-
-### Apply
-Build a simple tool that an AI system can call.
-
-## 11. Hugging Face Agents Course — Unit 1: Introduction
-Link: https://huggingface.co/learn/agents-course/unit1/introduction
-
-### Study
-- What an AI agent is
-- The role of tools
-- Agent execution cycles
-- How agents interact with their environment
-
-### Apply
-Explain the difference between a fixed workflow and an agent that selects tools.
-
-## 12. Microsoft AI Agents for Beginners
-Link: https://github.com/microsoft/ai-agents-for-beginners
-
-### Study selectively
-- Agent concepts
+- API authentication
+- Prompting
+- Structured outputs
 - Tool use
-- Planning
-- Memory
-- Multi-agent concepts
-- Responsible agent design
+- Vision inputs
 
-### Apply
-Compare a fixed workflow with an agent that selects tools.
+### Stage 00 Build
 
-### Build
-**AI Document Assistant — Version 2**
+Create a Python script that:
 
-Extend the assistant with a controlled tool or workflow.
-
-Include:
-- Input validation
-- Error handling
-- Clear stopping conditions
-- Human approval for important actions
+1. Loads an API key from `.env`.
+2. Calls an LLM API.
+3. Sends a simple prompt.
+4. Receives the response.
+5. Logs the response.
+6. Handles basic errors.
 
 ---
 
-# Stage 03 — AI Evaluation & Reliability
-**Days 26–35**
+# Stage 01 — LLMs, Prompting & Structured Outputs
 
-## 13. Building Systems with the ChatGPT API
-Link: https://www.deeplearning.ai/courses/building-systems-with-the-chatgpt-api/
+**Days 4–13**
 
-### Study
-- Multi-step AI systems
-- Input and output processing
-- Classification and evaluation
-- System-level design
+## What to Learn
 
-### Apply
-- Create a fixed set of test questions.
-- Record expected answers and source documents.
-- Test retrieval and answer quality.
-- Identify failure cases.
-- Compare results after changing the system.
+- Tokens
+- Context windows
+- Temperature
+- Hallucinations
+- System prompts
+- User prompts
+- Few-shot examples
+- Delimiters
+- Structured outputs
+- JSON schemas
+- Validation
+- Retries
+- Function calling
 
-### Build
-**AI Document Assistant — Evaluation Suite**
+## Andrej Karpathy — Intro to Large Language Models
 
-Create a repeatable evaluation process for the assistant.
+Search:
+
+**"Andrej Karpathy Intro to Large Language Models"**
+
+### Use for
+
+Building a conceptual mental model of:
+
+- What LLMs are
+- Training
+- Tokens
+- Transformers
+- Inference
+- How LLM applications work
+
+## DeepLearning.AI — ChatGPT Prompt Engineering for Developers
+
+https://www.deeplearning.ai/courses/chatgpt-prompt-engineering-for-developers/
+
+### Focus on
+
+- Clear instructions
+- Context
+- Few-shot examples
+- Summarization
+- Classification
+- Information extraction
+- Transformation
+
+**Approach:** Warm-up/reference. Do not spend excessive time completing the whole course.
+
+## Hugging Face LLM Course
+
+https://huggingface.co/learn/llm-course/chapter0/1
+
+### Focus on the early chapters
+
+- LLM fundamentals
+- Transformers
+- Tokenizers
+- Models
+- Inference
+
+**Approach:** Build conceptual understanding rather than attempting the entire course.
+
+## Pydantic
+
+https://docs.pydantic.dev
+
+### Focus on
+
+- Models
+- Fields
+- Validation
+- Type handling
+- JSON/schema validation
+
+## OpenAI Documentation
+
+https://platform.openai.com/docs
+
+### Focus on
+
+- Prompting
+- Structured outputs
+- Tool/function calling
+
+## Anthropic Documentation
+
+https://docs.claude.com
+
+### Focus on
+
+- Prompting
+- Structured outputs
+- Tool use
+
+### Stage 01 Build
+
+**Messy Email → Validated JSON**
+
+Input:
+
+```text
+Messy natural-language email
+```
+
+Output:
+
+```json
+{
+  "customer": "...",
+  "request_type": "...",
+  "priority": "...",
+  "deadline": "...",
+  "summary": "..."
+}
+```
+
+The application should validate the output and retry or handle invalid responses.
+
+---
+
+# Stage 02 — Workflows, Integrations & Agents
+
+**Days 14–27**
+
+## What to Learn
+
+- Workflow vs agent
+- Tool calling
+- Webhooks
+- APIs
+- Email automation
+- Google Sheets
+- Slack
+- WhatsApp
+- n8n
+- Prompt-injection awareness
+
+## Anthropic — Building Effective Agents
+
+https://www.anthropic.com/engineering/building-effective-agents
+
+### Focus on
+
+- Workflows
+- Agents
+- When to use workflows
+- When to use agents
+- Tool use
+- Simplicity vs complexity
+
+## n8n Documentation
+
+https://docs.n8n.io
+
+### Focus on
+
+- Workflows
+- Nodes
+- Triggers
+- Webhooks
+- HTTP requests
+- Credentials
+- Expressions
+- AI nodes
+- Error handling
+
+### Practical goal
+
+Build the same basic automation:
+
+1. Once using Python.
+2. Once using n8n.
+
+Compare the two approaches.
+
+## WhatsApp Cloud API
+
+https://developers.facebook.com/docs/whatsapp/cloud-api
+
+### Focus on
+
+- Sending messages
+- Receiving messages
+- Webhooks
+- Authentication
+- Message payloads
+
+Use only if the project requires WhatsApp integration.
+
+## Hugging Face Agents Course
+
+https://huggingface.co/learn/agents-course
+
+### Focus on
+
+- Agents
+- Tools
+- Agent loops
+- Tool execution
+- Agent architecture
+
+### Required section
+
+**Unit 1 — Introduction**
+
+https://huggingface.co/learn/agents-course/unit1/introduction
+
+## Microsoft — AI Agents for Beginners
+
+https://github.com/microsoft/ai-agents-for-beginners
+
+### Use for
+
+Additional explanations and examples of:
+
+- Agents
+- Tools
+- Memory
+- Planning
+- Multi-agent systems
+
+**Status:** Optional.
+
+### Stage 02 Build
+
+**AI Email / Lead Triage Automation**
+
+Example flow:
+
+```text
+Incoming Email
+      ↓
+LLM
+      ↓
+Classify / Extract
+      ↓
+Decision
+      ↓
+Google Sheets
+      ↓
+Optional notification
+```
+
+Build the workflow both:
+
+- In code
+- In n8n
+
+---
+
+# Stage 03 — Evaluation & Observability
+
+**Days 28–35**
+
+## What to Learn
+
+- Test sets
+- Expected outputs
+- Error categorization
+- LLM-as-judge
+- Regression testing
+- Tracing
+- Logging
+- Before/after comparison
+
+## DeepLearning.AI — Building Systems with the ChatGPT API
+
+https://www.deeplearning.ai/courses/building-systems-with-the-chatgpt-api/
+
+### Focus on
+
+- Multi-step systems
+- Evaluation
+- Classification
+- Processing pipelines
+- System design
+
+## Hamel Husain — Your AI Product Needs Evals
+
+https://hamel.dev/blog/posts/evals/
+
+### Focus on
+
+- Why evaluations matter
+- Creating useful test cases
+- Error analysis
+- Evaluating AI products
+
+## Langfuse
+
+https://langfuse.com/docs
+
+### Focus on
+
+- Tracing
+- Observability
+- LLM calls
+- Latency
+- Token usage
+- Debugging
+
+## Ragas
+
+https://docs.ragas.io
+
+### Focus on
+
+- RAG evaluation
+- Retrieval evaluation
+- Answer evaluation
+- Metrics
+
+### Stage 03 Build
+
+Create a **30–50 case evaluation dataset** for the Stage 02 project.
+
+Track:
+
+- Expected result
+- Actual result
+- Pass/fail
+- Failure category
+- Model/prompt version
+
+Run the test before and after changes.
 
 ---
 
 # Stage 04 — RAG Engineering
-**Days 36–47**
 
-## 14. Embeddings and Vector Databases
+**Days 36–51**
 
-Links:
-- https://www.deeplearning.ai/courses/understanding-and-applying-text-embeddings/
-- https://www.deeplearning.ai/courses/building-applications-vector-databases/
+## What to Learn
 
-### Study
-- Chunking strategies
+- Embeddings
+- Vector stores
+- PDF parsing
+- Tables
+- Chunking
+- Metadata
+- Keyword search
+- Vector search
+- Hybrid search
+- Reranking
+- Citations
+- "I don't know" behavior
+
+## DeepLearning.AI — Understanding and Applying Text Embeddings
+
+https://www.deeplearning.ai/courses/understanding-and-applying-text-embeddings/
+
+### Focus on
+
+- Embeddings
 - Semantic similarity
-- Retrieval behavior
-- Metadata and filtering
+- Retrieval
 
-## 15. Retrieval-Augmented Generation
-Link: https://www.deeplearning.ai/courses/retrieval-augmented-generation/
+## DeepLearning.AI — Building Applications with Vector Databases
 
-### Study
-- Document processing
-- Context selection
-- Retrieval strategies
-- Grounded generation
+https://www.deeplearning.ai/courses/building-applications-vector-databases/
 
-### Practice
-Compare:
-- Different chunk sizes
-- Different overlap settings
-- Keyword retrieval
-- Semantic retrieval
-- Hybrid retrieval
-- Reranking, where practical
+### Focus on
 
-### Build
-**AI Document Assistant — RAG Upgrade**
+- Vector databases
+- Indexing
+- Similarity search
+- Retrieval
 
-Improve the assistant using experiments and evaluation results rather than guessing.
+## DeepLearning.AI — Retrieval-Augmented Generation
+
+https://www.deeplearning.ai/courses/retrieval-augmented-generation/
+
+### Focus on
+
+- RAG architecture
+- Document ingestion
+- Retrieval
+- Context construction
+- Generation
+
+## Chroma
+
+https://docs.trychroma.com
+
+### Use for
+
+- Vector storage
+- Collections
+- Embeddings
+- Similarity search
+
+## pgvector
+
+https://github.com/pgvector/pgvector
+
+### Use for
+
+Vector search inside PostgreSQL.
+
+This is particularly useful because of my existing SQL/MySQL background.
+
+## Docling
+
+Search:
+
+**"Docling official documentation"**
+
+### Use for
+
+- PDF parsing
+- Document structure
+- Tables
+- Document conversion
+
+## Unstructured
+
+Search:
+
+**"Unstructured official documentation"**
+
+### Use for
+
+- Document parsing
+- PDF processing
+- Structured document elements
+
+### Stage 04 Build
+
+**Document Q&A with Citations**
+
+The system should:
+
+1. Load documents.
+2. Parse them.
+3. Split them into chunks.
+4. Add metadata.
+5. Generate embeddings.
+6. Retrieve relevant content.
+7. Generate an answer.
+8. Provide citations.
+9. Say "I don't know" when evidence is insufficient.
+
+Evaluate it using the Stage 03 evaluation approach.
+
+### Milestone
+
+Get **one real user** to try the application by the end of this stage.
 
 ---
 
-# Stage 05 — Multimodal AI
-**Days 48–61**
+# Stage 05 — Multimodal Extraction
 
-## 16. Hugging Face Learn
-Link: https://huggingface.co/learn
+**Days 52–57**
 
-### Study selectively
-- Computer vision
-- Vision-language models
-- Pretrained model usage
-- Image and text workflows
+## What to Learn
 
-## 17. OpenCV Documentation
-Link: https://docs.opencv.org/
+- Vision model inputs
+- Invoice extraction
+- Form extraction
+- OCR
+- OCR vs vision models
+- Cost
+- Speed
+- Accuracy
+- Confidence checks
+- Human review
 
-### Study
-- Loading and displaying images
-- Image transformations
-- Color spaces
+## OpenAI Documentation
+
+https://platform.openai.com/docs
+
+### Focus on
+
+Vision/image inputs and structured extraction.
+
+## Anthropic Documentation
+
+https://docs.claude.com
+
+### Focus on
+
+Vision/image inputs and structured extraction.
+
+## Tesseract OCR
+
+https://tesseract-ocr.github.io/
+
+### Focus on
+
+- OCR
+- Text extraction
+- Image preprocessing
+
+## OpenCV Documentation
+
+https://docs.opencv.org/
+
+### Focus on
+
+- Resizing
+- Cropping
 - Thresholding
-- Contours
-- Basic image processing
+- Denoising
+- Image preprocessing
 
-### Practice
-- Process a sample image using OpenCV.
-- Experiment with a vision-language model.
-- Compare the approaches on a visual task.
-- Record errors and limitations.
+Existing OpenCV knowledge can be used here rather than relearning the basics.
 
-### Build
-**Visual Document Assistant**
+### Stage 05 Build
 
-Create a small application that processes images or visual documents and answers questions about their contents.
+**Invoice Extractor**
+
+Input:
+
+```text
+Invoice image / PDF
+```
+
+Output:
+
+```json
+{
+  "vendor": "...",
+  "invoice_number": "...",
+  "date": "...",
+  "total": "...",
+  "items": []
+}
+```
+
+Measure accuracy against a labeled sample.
+
+Compare:
+
+```text
+OCR
+vs
+Vision Model
+```
 
 ---
 
 # Stage 06 — Production AI Engineering
-**Days 62–75**
 
-## 18. FastAPI Tutorial
-Link: https://fastapi.tiangolo.com/tutorial/
+**Days 58–73**
 
-### Study
-- Creating APIs
-- Request and response models
-- Data validation
+## What to Learn
+
+- API serving
+- FastAPI
+- Docker
+- Deployment
+- CI
+- Cost
+- Latency
+- Caching
+- Model selection
+- Token budgets
+- Retries
 - Error handling
-- Dependency injection
+- Logging
+- Monitoring
+- API security
+- Prompt injection
+- Data leakage
+- Guardrails
+- Spring Boot integration
+
+## FastAPI
+
+https://fastapi.tiangolo.com/tutorial/
+
+### Focus on
+
+- Routes
+- Request models
+- Response models
+- Validation
+- Error handling
+- Dependencies
 - Testing
 
-### Apply
-Expose an AI application through a REST API.
+## Docker
 
-## 19. Docker Getting Started
-Link: https://docs.docker.com/get-started/
+https://docs.docker.com/get-started/
 
-### Study
-- Images and containers
+### Focus on
+
+- Images
+- Containers
 - Dockerfiles
-- Building and running containers
-- Configuration
-- Basic networking
+- Builds
+- Environment variables
+- Networking
 
-### Apply
-Containerize an AI application.
+## GitHub Actions
 
-## 20. Spring Boot
-Link: https://spring.io/projects/spring-boot
+https://docs.github.com/en/actions
 
-### Study selectively
-- REST API development
+### Focus on
+
+- Workflows
+- Jobs
+- Steps
+- Automated tests
+- CI
+
+## OWASP Top 10 for LLM Applications
+
+https://genai.owasp.org/llm-top-10/
+
+### Focus on
+
+- Prompt injection
+- Sensitive information disclosure
+- Excessive agency
+- Insecure output handling
+- Other major LLM application risks
+
+## Render Documentation
+
+https://render.com/docs
+
+### Use for
+
+Learning one practical deployment path.
+
+Alternative:
+
+**Railway**
+
+Search: `Railway official documentation`
+
+## Spring Boot
+
+https://spring.io/projects/spring-boot
+
+### Focus on
+
+- REST APIs
 - Configuration
 - Dependency injection
-- Application structure
+- HTTP clients
 - Testing
 
 ### Apply
-Explore how Java and Spring Boot could integrate with AI services through APIs.
 
-## 21. GitHub Actions
-Link: https://docs.github.com/en/actions
+Build a Spring Boot service that communicates with an LLM API.
 
-### Study
-- Workflows
-- Events
-- Jobs and steps
-- Automated testing
+## Chip Huyen — AI Engineering
 
-### Apply
-Create a workflow that runs project tests when code changes are pushed.
+**Book:** *AI Engineering*
 
-## 22. Full Stack Deep Learning
-Link: https://fullstackdeeplearning.com/
+### Use for
 
-### Study selectively
-- AI project lifecycle
+Reference material on:
+
+- AI application architecture
+- Model selection
 - Evaluation
 - Deployment
-- Monitoring
-- Production system design
+- AI engineering practices
 
-### Build
-**Deployable AI Application**
+Do not attempt to read the entire book during the 101 days unless it fits naturally into the schedule.
 
-Add an API, tests, Docker configuration, and clear setup instructions to one of the earlier projects.
+### Stage 06 Build
+
+Take the strongest AI project from previous stages and turn it into a deployable application.
+
+Target architecture:
+
+```text
+Client
+  ↓
+API
+  ↓
+AI Application
+  ↓
+LLM / RAG / Tools
+  ↓
+External Services / Database
+```
+
+Include:
+
+- Tests
+- Docker
+- CI
+- Logging
+- Error handling
+- Deployment
+- Basic security
+
+Also build a small **Spring Boot → LLM** integration.
 
 ---
 
-# Stage 07 — Applied Machine Learning
-**Days 76–87**
+# Stage 07 — Applied ML Survey
 
-## 23. Google Machine Learning Crash Course
-Link: https://developers.google.com/machine-learning/crash-course
+**Days 74–77**
 
-### Study
-- Regression
-- Classification
-- Dataset preparation
-- Training and validation
-- Evaluation metrics
-- Overfitting and underfitting
-- Feature engineering
+## What to Learn
 
-### Apply
-- Prepare a small dataset.
-- Train a baseline model.
-- Evaluate its performance.
-- Analyze errors and limitations.
+- Training
+- Validation
+- Testing
+- Error analysis
+- Basic classification/regression
+- Prompting vs RAG vs fine-tuning
 
-## 24. Hugging Face LLM Course
-Link: https://huggingface.co/learn/llm-course/chapter0/1
+## Google Machine Learning Crash Course
+
+https://developers.google.com/machine-learning/crash-course
 
 ### Study selectively
-- Pretrained models
-- Inference
-- Relevant fine-tuning concepts
 
-### Apply
-Compare the practical roles of:
-- Prompting
+Focus on:
+
+- Classification
+- Regression
+- Dataset preparation
+- Training
+- Validation
+- Metrics
+- Overfitting
+- Error analysis
+
+Do not attempt to complete the entire course during this stage.
+
+## Hugging Face LLM Course
+
+https://huggingface.co/learn/llm-course/chapter0/1
+
+### Focus on
+
+Relevant model and fine-tuning sections.
+
+### Stage 07 Build
+
+Build:
+
+1. A small baseline ML model.
+2. A one-page decision guide comparing:
+
+```text
+Prompting
+RAG
+Fine-tuning
+Traditional ML
+```
+
+The guide should be written in my own words.
+
+---
+
+# Stage 08 — AI Product & Freelance Skills
+
+**Days 78–85**
+
+## What to Learn
+
+- Turning vague AI requests into defined projects
+- Requirements gathering
+- Scope definition
+- Estimation
+- Fixed-price vs hourly work
+- Value-based pricing concepts
+- Proposals
+- Scope creep
+- Handover
+- Maintenance
+- Case studies
+
+## Jonathan Stark — Ditching Hourly
+
+**Book:** *Ditching Hourly*
+
+### Use for
+
+Understanding alternative approaches to pricing professional services.
+
+## Brennan Dunn
+
+Search:
+
+**"Brennan Dunn pricing proposals consulting"**
+
+### Use for
+
+- Proposals
+- Pricing
+- Client communication
+- Scope definition
+
+## Upwork
+
+https://www.upwork.com
+
+### Use for
+
+Observing what clients actually request.
+
+Look for:
+
+- AI automation
+- Chatbots
+- Document processing
 - RAG
-- Fine-tuning
+- Workflow automation
+- API integration
 
-### Build
-**Applied ML Experiment**
+Do not copy listings. Use them to understand real-world requirements.
 
-Train and evaluate a small model, then document the approach and results.
+## Fiverr
 
----
+https://www.fiverr.com
 
-# Stage 08 — Independent Capstone
-**Days 88–100**
+### Use for
 
-Use the documentation that matches the project I choose.
+Understanding how AI automation services are described and packaged.
 
-### Potential references
-- Python: https://docs.python.org/3/tutorial/
-- Hugging Face: https://huggingface.co/learn
-- FastAPI: https://fastapi.tiangolo.com/tutorial/
-- Docker: https://docs.docker.com/get-started/
-- GitHub Actions: https://docs.github.com/en/actions
+### Stage 08 Build
 
-### Work independently
-1. Define a real problem.
-2. Set measurable success criteria.
-3. Design the architecture.
-4. Choose appropriate tools and models.
-5. Build the core application.
-6. Test and evaluate it.
-7. Improve failures.
-8. Document setup, architecture, and limitations.
+Create:
 
-### Deliverables
-- Working project
-- Source code
-- Project README
-- Evaluation results
-- Architecture documentation
-- Demonstration
+- AI project proposal template
+- Requirements/scoping checklist
+- Pricing/estimation worksheet
+- Handover checklist
+- Case study template
+
+Create case studies for selected projects from AI 101.
 
 ---
 
-# Stage 09 — Final Demonstration
+# Stage 09 — Independent Capstone
+
+**Days 86–100**
+
+## Learning Approach
+
+No new course is required.
+
+Use documentation only when a specific technical problem appears.
+
+## Possible Business Contexts
+
+Choose one realistic problem such as:
+
+- Clinic
+- Small shop
+- Agency
+- Manufacturing business
+- Internal business operations
+- Document-heavy workflow
+
+The exact problem should be chosen independently.
+
+## Capstone Requirements
+
+### 1. Problem
+
+Define:
+
+- User
+- Problem
+- Current workflow
+- Pain point
+- Proposed solution
+
+### 2. Requirements
+
+Define:
+
+- Functional requirements
+- Non-functional requirements
+- Success criteria
+- Constraints
+
+### 3. Architecture
+
+Document:
+
+- Components
+- APIs
+- Models
+- Database/vector store
+- External services
+- Data flow
+
+### 4. Implementation
+
+Build a working application.
+
+### 5. Evaluation
+
+Measure:
+
+- Accuracy
+- Reliability
+- Latency
+- Cost where practical
+- Failure cases
+
+### 6. Deployment
+
+Deploy a usable version where practical.
+
+### 7. Handover
+
+Provide:
+
+- Setup instructions
+- Configuration
+- Environment variables
+- API documentation
+- Maintenance notes
+
+### 8. Case Study
+
+Document:
+
+- Problem
+- Solution
+- Architecture
+- Results
+- Limitations
+- Lessons learned
+
+---
+
+# Stage 10 — Final Demo & Review
+
 **Day 101**
 
-### Review
-- What can I explain without notes?
-- What can I implement independently?
-- Which projects can I demonstrate?
-- What problems did I solve?
-- What limitations remain?
-- What should I learn next?
+## Review
 
-### Final Deliverable
-A final capstone demonstration and a written retrospective of the 101-day journey.
+Answer:
+
+- What can I explain without notes?
+- What can I build independently?
+- What can I debug independently?
+- Which AI architectures do I understand?
+- What failures did I encounter?
+- How did I evaluate my systems?
+- What can I demonstrate?
+- What do I still need to learn?
 
 ---
 
-# Study Rules
+# Resource Rules
 
-- Follow the current roadmap stage.
-- Study only the relevant sections of each resource.
-- Do not try to finish every course.
-- Write notes in my own words.
-- Build small examples before integrating them into projects.
-- Test what I build.
-- Record failures and fixes.
-- Revisit concepts through active recall.
-- Use documentation to solve real implementation problems.
+## 1. Do not complete courses for the sake of completion.
 
-**The goal is not to finish links. The goal is to gain skills I can demonstrate.**
+A resource is a tool, not the goal.
+
+## 2. Prefer official documentation for implementation.
+
+Use courses for concepts and documentation for actual development.
+
+## 3. Build immediately.
+
+Do not spend several days watching content before writing code.
+
+## 4. Search when stuck.
+
+If the documentation does not answer a specific implementation question, search for the specific problem.
+
+## 5. Avoid resource accumulation.
+
+Do not add another course simply because it looks interesting.
+
+## 6. Reuse knowledge.
+
+Every new stage should improve or extend something already built where practical.
+
+## 7. Document failures.
+
+Errors, failed experiments, and fixes are part of the proof of learning.
+
+---
+
+# Resource Priority
+
+## Core
+
+These are the main resources:
+
+- OpenAI documentation
+- Anthropic documentation
+- Python documentation
+- Pro Git
+- DeepLearning.AI Prompt Engineering
+- Hugging Face LLM Course
+- Hugging Face Agents Course
+- Anthropic Building Effective Agents
+- n8n documentation
+- DeepLearning.AI Building Systems
+- Hamel Husain Evals
+- Langfuse
+- Ragas
+- DeepLearning.AI Embeddings
+- DeepLearning.AI Vector Databases
+- DeepLearning.AI RAG
+- Chroma
+- pgvector
+- FastAPI
+- Docker
+- GitHub Actions
+- OWASP LLM Top 10
+- Spring Boot
+- Google ML Crash Course
+
+## Supporting / Optional
+
+- Microsoft AI Agents for Beginners
+- Full Stack Deep Learning
+- Chip Huyen — AI Engineering
+- Brennan Dunn
+- Jonathan Stark
+- Upwork
+- Fiverr
+
+---
+
+# Resource Completion Philosophy
+
+I do not need to finish every resource.
+
+Instead:
+
+```text
+Resource
+   ↓
+Relevant concept
+   ↓
+Implementation
+   ↓
+Experiment
+   ↓
+Evaluation
+   ↓
+Documentation
+```
+
+**The goal is not to finish links.**
+
+**The goal is to gain skills I can demonstrate.**

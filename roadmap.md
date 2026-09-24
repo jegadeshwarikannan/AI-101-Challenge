@@ -1,425 +1,1051 @@
+# AI 101 — 101-Day Roadmap
 
-# AI 101 — 101-Day Learning Roadmap
-
-## Overview
-
-**Duration:** 101 days  
-**Focus:** Applied AI, AI Engineering, and Automation  
-**Approach:** Learn by building, testing, documenting, and explaining.
-
-This roadmap is designed to move from foundational concepts to practical AI applications and an independent capstone project.
-
-The schedule is a learning plan, not a guarantee of mastery. Topics may require additional practice depending on my understanding and implementation progress.
+> **101 days. One journey. Real skills.**
+>
+> A hands-on roadmap for learning Applied AI, LLM application development, automation, agents, RAG, multimodal AI, production engineering, applied ML, and AI product skills.
 
 ---
 
-# Stage 00 — Setup and Skill Assessment
+# How to Use This Roadmap
+
+This roadmap is designed around:
+
+**Learn → Practice → Build → Test → Evaluate → Improve → Document → Explain**
+
+The day ranges are targets, not deadlines. A stage is complete when its practical objectives and deliverables are completed.
+
+The goal is **not** to finish every course. The goal is to develop skills that can be demonstrated through working projects, experiments, evaluations, deployments, and documentation.
+
+---
+
+# Stage 00 — Setup
 
 **Days 1–3**
 
-### Objective
-Prepare the development environment and assess my existing programming and Git skills.
+## Objective
 
-### Topics
-- Python fundamentals refresher
-- Virtual environments and package management
-- Git and GitHub workflow
-- Project organization
-- Basic debugging
+Set up the development environment and establish the workflow that will be used throughout AI 101.
 
-### Practical Work
-- Set up the project environment.
-- Review Python functions, collections, files, and exceptions.
-- Practice creating branches, commits, and a remote repository.
-- Build a small Python utility without following a complete tutorial.
+## Learn
 
-### Deliverables
-- Working development environment
-- Initial GitHub repository
-- Python skill-check exercise
-- Initial learning progress tracker
+- Python virtual environments
+- Package management
+- API keys
+- `.env` files
+- Basic API requests
+- Logging
+- Git workflow
+- GitHub repository workflow
 
----
+## Resources
 
-# Stage 01 — AI Foundations, LLMs, and RAG Basics
+- Python Tutorial
+- Pro Git
+- GitHub Getting Started
+- OpenAI API Documentation
+- Anthropic Documentation
 
-**Days 4–15**
+See [RESOURCES.md](RESOURCES.md) for links and study guidance.
 
-### Objective
-Understand the foundations of modern AI applications and build a basic LLM-powered application.
+## Build
 
-### Topics
-- AI, machine learning, and deep learning
-- Traditional ML vs. generative AI
-- Neural networks at a conceptual level
-- Large language models (LLMs)
-- Tokens and context windows
-- Model inference
-- Prompt engineering
-- Structured outputs
-- Embeddings and semantic similarity
-- Vector databases
-- Retrieval-augmented generation (RAG)
+Create a Python script that:
 
-### Practical Work
-- Experiment with different prompts.
-- Compare model responses.
-- Generate structured outputs.
-- Create embeddings and compare semantic similarity.
-- Store and retrieve document chunks.
-- Build a basic document question-answering application.
+1. Loads an API key from `.env`.
+2. Calls an LLM API.
+3. Sends a simple prompt.
+4. Receives the response.
+5. Logs the response.
+6. Handles basic API errors.
 
-### Project
-**AI Document Assistant — Version 1**
+## Deliverables
 
-A basic application that accepts documents, retrieves relevant information, and answers user questions using the available context.
-
-### Deliverables
-- LLM and prompting experiments
-- Embedding and retrieval exercises
-- Basic RAG implementation
-- Project documentation
+- Working Python environment
+- `.env.example`
+- First LLM API script
+- Git repository initialized
+- Initial GitHub push
+- First meaningful commit
 
 ---
 
-# Stage 02 — Tools, Workflows, and AI Agents
+# Stage 01 — LLMs, Prompting & Structured Outputs
 
-**Days 16–25**
+**Days 4–13**
 
-### Objective
-Understand how AI applications use tools and execute controlled multi-step workflows.
+## Objective
 
-### Topics
-- Function and tool calling
-- Tool schemas and input validation
-- Workflow orchestration
-- AI agents vs. fixed workflows
-- State and memory
-- Planning and execution
-- Stopping conditions
+Understand how modern LLM applications work and learn to produce reliable structured outputs.
+
+## Learn
+
+### LLM Fundamentals
+
+- Tokens
+- Context windows
+- Temperature
+- Inference
+- Hallucinations
+- Basic transformer concepts
+
+### Prompting
+
+- System prompts
+- User prompts
+- Clear instructions
+- Context
+- Delimiters
+- Few-shot examples
+- Prompt iteration
+
+### Structured Outputs
+
+- JSON outputs
+- Schemas
+- Pydantic validation
+- Invalid output handling
+- Retries
+- Function/tool calling
+
+## Resources
+
+- Andrej Karpathy — Intro to Large Language Models
+- DeepLearning.AI — ChatGPT Prompt Engineering for Developers
+- Hugging Face LLM Course
+- Pydantic documentation
+- OpenAI documentation
+- Anthropic documentation
+
+## Build
+
+### Messy Email → Validated JSON Extractor
+
+Input:
+
+```text
+Messy natural-language email
+```
+
+Output:
+
+```json
+{
+  "customer": "...",
+  "request_type": "...",
+  "priority": "...",
+  "deadline": "...",
+  "summary": "..."
+}
+```
+
+The system should:
+
+- Call an LLM.
+- Request structured output.
+- Validate the result.
+- Handle invalid output.
+- Retry when appropriate.
+- Log failures.
+
+## Deliverables
+
+- Working extractor
+- Prompt experiments
+- Pydantic schema
+- Validation logic
 - Error handling
-- Human approval and control
-- Agent limitations
-
-### Practical Work
-- Build a tool that an LLM can call.
-- Validate tool inputs and outputs.
-- Create a multi-step workflow.
-- Add error handling and stopping conditions.
-- Experiment with human approval before important actions.
-
-### Project
-**AI Document Assistant — Version 2**
-
-Extend the document assistant with controlled tools and additional workflow capabilities.
-
-### Deliverables
-- Tool-calling examples
-- Workflow implementation
-- Agent experiment
-- Updated document assistant
+- README documenting the approach
 
 ---
 
-# Stage 03 — AI Evaluation and Reliability
+# Stage 02 — Workflows, Integrations & Agents
 
-**Days 26–35**
+**Days 14–27**
 
-### Objective
-Learn how to evaluate AI application behavior instead of relying only on subjective impressions.
+## Objective
 
-### Topics
-- AI evaluation fundamentals
-- Test datasets and expected outcomes
-- Retrieval quality
-- Answer correctness and relevance
-- Hallucination analysis
-- Citation and grounding checks
-- Regression testing
+Learn how AI connects to external systems and understand the difference between deterministic workflows and agents.
+
+## Learn
+
+### Workflows
+
+- Sequential workflows
+- Conditional logic
+- State
+- Triggers
+- Webhooks
+- API integrations
+
+### Automation
+
+- Email
+- Google Sheets
+- Slack
+- WhatsApp
+- HTTP APIs
+- n8n
+
+### Agents
+
+- Workflow vs agent
+- Tools
+- Tool calling
+- Agent loops
+- Planning
+- Memory
+- Stopping conditions
+- Human approval
+- Prompt-injection awareness
+
+## Resources
+
+- Anthropic — Building Effective Agents
+- n8n documentation
+- WhatsApp Cloud API documentation
+- Hugging Face Agents Course
+- Hugging Face Agents Course Unit 1
+- Microsoft AI Agents for Beginners — optional
+
+## Build
+
+### AI Email / Lead Triage Automation
+
+Example:
+
+```text
+Incoming Email
+      ↓
+LLM
+      ↓
+Classify / Extract
+      ↓
+Decision
+      ↓
+Google Sheets
+      ↓
+Optional Notification
+```
+
+Build the same core automation:
+
+1. Once using Python.
+2. Once using n8n.
+
+Then compare:
+
+- Complexity
+- Flexibility
+- Maintainability
+- Development speed
+- Integration effort
+
+## Deliverables
+
+- Code-based automation
+- n8n workflow
+- External integration
+- Tool-calling example
+- Agent/workflow comparison
+- Error handling
+- Basic prompt-injection notes
+
+---
+
+# Stage 03 — Evaluation & Observability
+
+**Days 28–35**
+
+## Objective
+
+Learn to measure AI application quality instead of relying on subjective impressions.
+
+## Learn
+
+- Test datasets
+- Expected outputs
+- Pass/fail criteria
+- Error categorization
 - Failure analysis
-- Evaluation limitations
+- LLM-as-judge
+- Limitations of LLM-as-judge
+- Regression testing
+- Prompt versioning
+- Tracing
+- Logging
+- Latency and token tracking
 
-### Practical Work
-- Create a fixed set of test questions.
-- Record expected answers and relevant source documents.
-- Test retrieval and answer quality.
-- Identify common failure cases.
-- Compare results before and after changes.
-- Create repeatable evaluation scripts.
+## Resources
 
-### Project
-**AI Document Assistant — Evaluation Suite**
+- DeepLearning.AI — Building Systems with the ChatGPT API
+- Hamel Husain — Your AI Product Needs Evals
+- Langfuse
+- Ragas
 
-Build a small evaluation process for the document assistant.
+## Build
 
-### Deliverables
+### Evaluation Suite
+
+Create a **30–50 case test set** for the Stage 02 automation.
+
+For each case record:
+
+| Field | Purpose |
+|---|---|
+| Input | Original test case |
+| Expected result | Correct behavior |
+| Actual result | System output |
+| Pass/Fail | Evaluation |
+| Failure category | Type of error |
+| Prompt/model version | Reproducibility |
+
+Run the evaluation:
+
+1. Before improvements.
+2. After prompt/system changes.
+
+## Deliverables
+
 - Test dataset
-- Evaluation script
-- Results and failure analysis
-- Documented improvements
+- Scoring script
+- Failure categories
+- Before/after results
+- Evaluation README
+- Basic tracing/logging
 
 ---
 
 # Stage 04 — RAG Engineering
 
-**Days 36–47**
+**Days 36–51**
 
-### Objective
-Understand how retrieval design affects the quality and reliability of AI applications.
+## Objective
 
-### Topics
-- Document ingestion
-- Text extraction and cleaning
-- Chunking strategies
-- Chunk size and overlap
+Build reliable document-grounded AI systems and understand how retrieval design affects answer quality.
+
+## Learn
+
+### Retrieval Foundations
+
+- Embeddings
+- Semantic similarity
+- Vector stores
+- Similarity search
+
+### Document Processing
+
+- PDF parsing
+- Tables
+- Text extraction
+- Document structure
+- Metadata
+
+### Retrieval Engineering
+
+- Chunking
+- Chunk size
+- Chunk overlap
 - Metadata filtering
-- Keyword retrieval
-- Semantic retrieval
-- Hybrid retrieval
+- Keyword search
+- Vector search
+- Hybrid search
 - Reranking
-- Context construction
-- Source attribution and citations
-- Retrieval failure analysis
 
-### Practical Work
-- Experiment with different chunk sizes.
-- Compare chunking strategies.
-- Add metadata to document chunks.
-- Compare keyword and semantic retrieval.
-- Experiment with hybrid retrieval.
-- Evaluate reranking and citation behavior.
+### Answer Quality
 
-### Project
-**AI Document Assistant — RAG Upgrade**
+- Context selection
+- Citations
+- Grounding
+- "I don't know" behavior
+- Retrieval failures
+- RAG evaluation
 
-Improve retrieval quality and source-grounded answers using measured experiments.
+## Resources
 
-### Deliverables
-- Chunking comparison
+- DeepLearning.AI — Understanding and Applying Text Embeddings
+- DeepLearning.AI — Building Applications with Vector Databases
+- DeepLearning.AI — Retrieval-Augmented Generation
+- Chroma documentation
+- pgvector
+- Docling
+- Unstructured
+
+## Build
+
+### Document Q&A with Citations
+
+The system should:
+
+```text
+Documents
+   ↓
+Parsing
+   ↓
+Chunking
+   ↓
+Metadata
+   ↓
+Embeddings
+   ↓
+Retrieval
+   ↓
+Relevant Context
+   ↓
+LLM
+   ↓
+Answer + Citations
+```
+
+It should also respond appropriately when the available evidence is insufficient.
+
+## Evaluate
+
+Reuse the evaluation approach from Stage 03.
+
+Measure:
+
+- Retrieval quality
+- Answer quality
+- Citation correctness
+- Failure cases
+- "I don't know" behavior
+
+## Milestone
+
+Get **one real user** to try the application by the end of this stage.
+
+## Deliverables
+
+- RAG application
+- Document ingestion pipeline
+- Vector store
 - Retrieval experiments
-- Updated RAG pipeline
-- Evaluation results and documentation
+- Evaluation results
+- Citation support
+- Documentation
 
 ---
 
-# Stage 05 — Multimodal AI
+# Stage 05 — Multimodal Extraction
 
-**Days 48–61**
+**Days 52–57**
 
-### Objective
-Explore AI applications that work with more than text, particularly images and visual documents.
+## Objective
 
-### Topics
-- Multimodal AI fundamentals
-- Vision-language models (VLMs)
-- Image understanding
-- OCR and document extraction
-- Text and image inputs
-- Traditional computer vision vs. VLMs
-- Image-based question answering
-- Visual document processing
-- Multimodal evaluation
-- Limitations of visual models
+Understand how AI systems process images and visual documents, and compare OCR with vision models.
 
-### Practical Work
-- Experiment with image-question answering.
-- Extract text from visual documents.
-- Compare OCR-based extraction with vision-language models.
-- Test visual reasoning on selected examples.
-- Analyze errors and limitations.
+## Learn
 
-### Project
-**Visual Document Assistant**
+- Vision-model inputs
+- Invoice extraction
+- Form extraction
+- OCR
+- OCR vs vision models
+- Accuracy
+- Cost
+- Speed
+- Confidence checks
+- Human-review fallbacks
+- Image preprocessing
 
-Build a small application that can process visual documents or images and answer questions about their content.
+## Resources
 
-### Deliverables
-- Image and document experiments
-- OCR/VLM comparison
-- Working multimodal prototype
-- Evaluation notes
+- OpenAI documentation — vision inputs
+- Anthropic documentation — vision inputs
+- Tesseract documentation
+- OpenCV documentation
+
+## Build
+
+### Invoice Extractor
+
+Input:
+
+```text
+Invoice image / PDF
+```
+
+Output:
+
+```json
+{
+  "vendor": "...",
+  "invoice_number": "...",
+  "date": "...",
+  "total": "...",
+  "items": []
+}
+```
+
+Create a labeled sample and measure extraction accuracy.
+
+Compare:
+
+```text
+OCR
+vs
+Vision Model
+```
+
+## Deliverables
+
+- Invoice extraction application
+- Labeled test sample
+- Accuracy results
+- OCR experiment
+- Vision-model experiment
+- Human-review fallback
+- Comparison report
 
 ---
 
 # Stage 06 — Production AI Engineering
 
-**Days 62–75**
+**Days 58–73**
 
-### Objective
-Learn how to turn an AI prototype into a more reliable, testable, and maintainable application.
+## Objective
 
-### Topics
-- Application architecture
-- REST API development
-- FastAPI fundamentals
-- Request and response validation
-- Configuration and environment variables
-- API keys and secrets management
-- Logging and error handling
-- Unit and integration testing
-- Latency and cost awareness
-- Authentication and access control
-- Docker fundamentals
-- Deployment basics
-- Monitoring and observability
-- Continuous integration
+Turn an AI prototype into a more reliable, testable, secure, and deployable application.
 
-### Practical Work
-- Expose an AI application through an API.
-- Validate incoming requests.
-- Add structured error handling and logging.
-- Write automated tests.
-- Containerize the application.
-- Deploy a working version where practical.
-- Document configuration and setup.
+## Learn
 
-### Project
-**Deployable AI Application**
+### APIs
 
-Package one of the earlier projects as a maintainable application with an API, tests, and deployment documentation.
+- FastAPI
+- Request validation
+- Response validation
+- Error handling
+- API architecture
 
-### Deliverables
-- API implementation
+### Deployment
+
+- Docker
+- Containers
+- Cloud deployment
+- Environment configuration
+- CI/CD
+
+### Reliability
+
+- Retries
+- Timeouts
+- Logging
+- Monitoring
+- Failure handling
+
+### Performance
+
+- Latency
+- Token budgets
+- Model selection
+- Caching
+- Cost control
+
+### Security
+
+- API key protection
+- Prompt injection
+- Data leakage
+- Insecure outputs
+- Guardrails
+
+### Java Integration
+
+- Spring Boot
+- REST APIs
+- HTTP clients
+- LLM integration
+
+## Resources
+
+- FastAPI documentation
+- Docker documentation
+- GitHub Actions documentation
+- OWASP Top 10 for LLM Applications
+- Render documentation or Railway
+- Spring Boot documentation
+- Chip Huyen — AI Engineering
+
+## Build
+
+### Production AI Application
+
+Take the strongest project from earlier stages and make it production-oriented.
+
+Target architecture:
+
+```text
+Client
+  ↓
+API
+  ↓
+AI Application
+  ↓
+LLM / RAG / Tools
+  ↓
+Database / External Services
+```
+
+Include:
+
+- API
+- Validation
+- Tests
+- Docker
+- CI
+- Logging
+- Error handling
+- Deployment
+- Basic security
+- Cost/latency considerations
+
+### Additional Build
+
+Create a small:
+
+```text
+Spring Boot → LLM API
+```
+
+integration.
+
+## Deliverables
+
+- Production-oriented application
+- API
 - Automated tests
 - Docker configuration
-- Deployment or local-run instructions
-- Basic operational documentation
+- CI workflow
+- Deployment
+- Logging
+- Security notes
+- Spring Boot integration
+- Architecture documentation
 
 ---
 
-# Stage 07 — Applied Machine Learning
+# Stage 07 — Applied ML Survey
 
-**Days 76–87**
+**Days 74–77**
 
-### Objective
-Strengthen practical ML understanding and learn how to choose an appropriate approach for a problem.
+## Objective
 
-### Topics
-- Supervised learning
-- Classification and regression
-- Dataset preparation
-- Train, validation, and test splits
-- Data leakage
-- Feature engineering
+Understand enough practical machine learning to choose between traditional ML and modern AI approaches.
+
+## Learn
+
+- Training
+- Validation
+- Testing
+- Classification
+- Regression
+- Metrics
+- Overfitting
+- Error analysis
 - Baseline models
-- Evaluation metrics
-- Overfitting and underfitting
-- Model comparison
-- Pretrained models
-- Prompting vs. RAG vs. fine-tuning
-- Practical model selection
+- Prompting vs RAG vs fine-tuning
+- Traditional ML vs LLM-based approaches
 
-### Practical Work
-- Prepare a small dataset.
-- Train a baseline model.
-- Evaluate it using appropriate metrics.
-- Analyze errors and overfitting.
-- Compare alternative approaches.
-- Document why a particular approach fits the task.
+## Resources
 
-### Project
-**Applied ML Experiment**
+- Google Machine Learning Crash Course — selected lessons
+- Hugging Face LLM Course — relevant model/fine-tuning sections
 
-Build a small ML solution and compare its behavior against a simple baseline.
+## Build
 
-### Deliverables
-- Dataset and preprocessing workflow
+### 1. Small Baseline ML Model
+
+Train and evaluate a basic model.
+
+### 2. Decision Guide
+
+Create a one-page guide in your own words:
+
+```text
+Prompting
+    ↓
+When?
+    ↓
+RAG
+    ↓
+When?
+    ↓
+Fine-tuning
+    ↓
+When?
+    ↓
+Traditional ML
+    ↓
+When?
+```
+
+## Deliverables
+
+- Dataset
 - Baseline model
 - Evaluation results
-- Experiment report
-- Model selection explanation
+- Error analysis
+- Decision guide
 
 ---
 
-# Stage 08 — Independent Capstone
+# Stage 08 — AI Product & Freelance Skills
 
-**Days 88–100**
+**Days 78–85**
 
-### Objective
-Apply the skills developed throughout the challenge to an independently designed and implemented project.
+## Objective
 
-### Activities
-- Identify a practical problem.
-- Define the project scope and success criteria.
-- Research relevant approaches.
-- Design the system architecture.
-- Select models, tools, and frameworks.
-- Build the core implementation.
-- Test and evaluate the system.
-- Analyze failures and improve the solution.
-- Document setup, architecture, and limitations.
-- Prepare a final demonstration.
+Learn how to turn an AI capability into a clearly scoped, deliverable project.
 
-### Capstone Expectations
-The project should demonstrate:
+## Learn
 
-- A clearly defined problem
-- Appropriate use of AI or automation
-- A working implementation
-- Meaningful testing or evaluation
-- Technical decisions explained in my own words
-- Reproducible setup instructions
-- Honest documentation of limitations
+- Problem discovery
+- Requirements gathering
+- Scope definition
+- Estimation
+- Fixed-price projects
+- Hourly projects
+- Value-based pricing concepts
+- Proposals
+- Scope creep
+- Handover
+- Maintenance
+- Case studies
 
-### Deliverables
-- Working capstone
+## Resources
+
+- Jonathan Stark — *Ditching Hourly*
+- Brennan Dunn — pricing and proposal material
+- Upwork listings
+- Fiverr listings
+
+## Build
+
+Create:
+
+- AI project proposal template
+- Requirements/scoping checklist
+- Pricing/estimation worksheet
+- Handover checklist
+- Case study template
+
+Create case studies for selected AI 101 projects.
+
+## Deliverables
+
+- Proposal template
+- Scope checklist
+- Estimation/pricing worksheet
+- Handover checklist
+- At least one case study
+
+---
+
+# Stage 09 — Independent Capstone
+
+**Days 86–100**
+
+## Objective
+
+Independently design and build a realistic AI solution using the skills developed throughout AI 101.
+
+## Rule
+
+No new course is required.
+
+Use documentation only when a specific technical problem appears.
+
+## Choose a Realistic Problem
+
+Possible contexts:
+
+- Clinic
+- Small shop
+- Agency
+- Manufacturing business
+- Internal business operations
+- Document-heavy workflow
+
+The final problem should be selected independently.
+
+## Phase 1 — Problem Definition
+
+Document:
+
+- User
+- Problem
+- Current workflow
+- Pain point
+- Proposed solution
+
+## Phase 2 — Requirements
+
+Define:
+
+- Functional requirements
+- Non-functional requirements
+- Success criteria
+- Constraints
+
+## Phase 3 — Architecture
+
+Document:
+
+- Components
+- APIs
+- Models
+- Database/vector store
+- External services
+- Data flow
+
+## Phase 4 — Implementation
+
+Build a working application.
+
+## Phase 5 — Evaluation
+
+Measure where practical:
+
+- Accuracy
+- Reliability
+- Latency
+- Cost
+- Failure cases
+
+## Phase 6 — Deployment
+
+Deploy a usable version where practical.
+
+## Phase 7 — Handover
+
+Provide:
+
+- Setup instructions
+- Configuration
+- Environment variables
+- API documentation
+- Maintenance notes
+
+## Phase 8 — Case Study
+
+Document:
+
+- Problem
+- Solution
+- Architecture
+- Results
+- Limitations
+- Lessons learned
+
+## Capstone Deliverables
+
+- Working application
 - Source code
-- README and setup instructions
-- Evaluation results
+- README
 - Architecture documentation
-- Demonstration material
+- Evaluation dataset/results
+- Deployment
+- Handover documentation
+- Published case study
 
 ---
 
-# Stage 09 — Final Demonstration and Review
+# Stage 10 — Final Demo & Review
 
 **Day 101**
 
-### Objective
-Review the complete journey and demonstrate what I can independently build and explain.
+## Objective
 
-### Activities
-- Demonstrate the capstone.
-- Review the repository and project history.
-- Explain the architecture and important technical decisions.
-- Discuss failures, limitations, and lessons learned.
-- Identify topics that need further practice.
-- Write a final reflection on the 101-day journey.
+Demonstrate the skills developed during the 101-day journey and identify the next learning direction.
 
-### Final Deliverables
-- Completed capstone demonstration
-- Final project documentation
+## Final Review
+
+Answer:
+
+- What can I explain without notes?
+- What can I build independently?
+- What can I debug independently?
+- Which AI architectures do I understand?
+- What failures did I encounter?
+- How did I evaluate my systems?
+- What can I demonstrate?
+- What do I still need to learn?
+
+## Final Demonstration
+
+Present:
+
+1. The capstone problem.
+2. The architecture.
+3. The implementation.
+4. The evaluation.
+5. The deployment.
+6. The major challenges.
+7. The improvements made.
+8. The limitations.
+9. What I learned.
+
+## Final Deliverables
+
+- Capstone demo
+- Final README
+- Evaluation results
+- Case study
 - Learning retrospective
-- List of skills strengthened
-- Next learning goals
+- Next-step learning plan
 
 ---
 
-# Daily Learning and Retention Cycle
+# Cross-Stage Learning Habits
 
-For each learning day, use the following cycle where practical:
+These practices should continue throughout all 101 days.
 
-1. **Recall:** Review what I learned previously without immediately checking notes.
-2. **Learn:** Study one focused concept.
-3. **Implement:** Apply the concept through code or an experiment.
-4. **Test:** Check whether the implementation behaves as expected.
-5. **Explain:** Write a short explanation in my own words.
-6. **Reflect:** Record what was difficult and what needs revisiting.
+## Active Recall
 
-The goal is to make learning active and measurable rather than simply consuming content.
+Before checking notes, try to explain the concept from memory.
+
+## Build Before Perfecting
+
+Create a small working version before optimizing it.
+
+## Keep a Failure Log
+
+Record:
+
+- Error
+- Cause
+- Investigation
+- Fix
+- Lesson
+
+## Evaluate Changes
+
+Whenever possible, compare:
+
+```text
+Before
+vs
+After
+```
+
+## Document Decisions
+
+For meaningful technical choices, record:
+
+- What I chose
+- Why I chose it
+- Alternatives considered
+- Trade-offs
+- Result
+
+## Use Git Meaningfully
+
+Commit working milestones rather than making empty daily commits.
+
+Example:
+
+```text
+feat: add structured email extraction
+fix: handle invalid JSON responses
+test: add extraction evaluation cases
+docs: document prompt experiments
+refactor: separate LLM client from parser
+```
 
 ---
 
-# Progress and Completion Criteria
+# Proof-of-Work Standard
 
-A topic is not considered complete merely because I watched a video or read documentation.
+A Git commit proves that a change was made.
 
-I should be able to:
+It does not prove mastery.
 
-- Explain the main concept in my own words.
-- Implement a small example.
-- Test or inspect its behavior.
-- Identify at least one limitation or failure case.
-- Record useful notes and code in this repository.
+The repository should progressively contain evidence such as:
 
-Some topics may require continued practice beyond their scheduled days. The roadmap is a guide, not a reason to rush past gaps in understanding.
+- Working code
+- Experiments
+- Tests
+- Evaluation datasets
+- Results
+- Failure analysis
+- Architecture diagrams
+- Deployment configuration
+- Case studies
+- Reflections
+- Meaningful Git history
+
+The goal is to show the complete engineering process:
+
+```text
+Learn
+  ↓
+Build
+  ↓
+Fail
+  ↓
+Investigate
+  ↓
+Fix
+  ↓
+Measure
+  ↓
+Improve
+  ↓
+Deploy
+  ↓
+Explain
+```
+
+---
+
+# Completion Criteria
+
+A stage is considered complete when:
+
+- The core concepts have been studied.
+- The practical build has been completed.
+- The implementation has been tested.
+- Important failures have been documented.
+- Results have been evaluated where appropriate.
+- The work is committed to Git.
+- I can explain the main concepts in my own words.
+
+The schedule can move if necessary.
+
+**Understanding the skill is more important than obeying the calendar.**
+
+---
+
+# Final Outcome
+
+At the end of AI 101, this repository should demonstrate:
+
+```text
+LLM Fundamentals
+      ↓
+Prompting
+      ↓
+Structured Outputs
+      ↓
+Automation
+      ↓
+Agents
+      ↓
+Evaluation
+      ↓
+RAG
+      ↓
+Multimodal AI
+      ↓
+Production Engineering
+      ↓
+Applied ML
+      ↓
+AI Product Skills
+      ↓
+Independent Capstone
+```
+
+The objective is not to claim mastery of every area.
+
+The objective is to finish the 101 days with a strong practical foundation, real projects, measurable experiments, and the ability to continue learning independently.
